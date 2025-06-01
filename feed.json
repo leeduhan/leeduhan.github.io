@@ -1,0 +1,75 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "My Blog",
+  "description": "A modern blog built with Next.js, React 19, and MDX. Sharing insights about web development, programming, and technology.",
+  "home_page_url": "https://yourdomain.github.io",
+  "feed_url": "https://yourdomain.github.io/feed.json",
+  "language": "ko-KR",
+  "authors": [
+    {
+      "name": "Blog Author",
+      "url": "https://yourdomain.github.io"
+    }
+  ],
+  "items": [
+    {
+      "id": "https://yourdomain.github.io/posts/nextjs-15-features/",
+      "title": "Next.js 15의 새로운 기능들",
+      "content_html": "\n# Next.js 15의 새로운 기능들\n\nNext.js 15가 출시되면서 많은 흥미로운 기능들이 추가되었습니다. 이번 포스트에서는 주요 변경사항과 새로운 기능들을 자세히 살펴보겠습니다.\n\n## 주요 변경사항\n\n### React 19 지원\n\nNext.js 15는 React 19를 완전히 지원합니다. 이는 다음과 같은 이점을 제공합니다:\n\n- **향상된 성능**: 새로운 React 컴파일러 최적화\n- **개선된 서버 컴포넌트**: 더 빠른 렌더링과 낮은 번들 크기\n- **새로운 훅들**: `use()` 훅 등의 새로운 기능\n\n```javascript\n// React 19의 새로운 use() 훅 사용 예제\nimport { use } from \"react\";\n\nfunction UserProfile({ userPromise }) {\n  const user = use(userPromise);\n\n  return (\n    <div>\n      <h1>{user.name}</h1>\n      <p>{user.email}</p>\n    </div>\n  );\n}\n```\n\n### Turbopack 안정화\n\nTurbopack이 개발 모드에서 기본값으로 설정되었습니다:\n\n- **더 빠른 개발 서버**: 기존 Webpack 대비 최대 10배 빠른 속도\n- **향상된 HMR**: 거의 즉시 반영되는 핫 리로드\n- **메모리 효율성**: 더 적은 메모리 사용량\n\n## 새로운 기능들\n\n### 1. 향상된 정적 내보내기\n\n`output: 'export'` 옵션이 개선되어 더 많은 기능을 지원합니다:\n\n```javascript\n// next.config.js\nconst nextConfig = {\n  output: \"export\",\n  trailingSlash: true,\n  images: {\n    unoptimized: true,\n  },\n};\n```\n\n### 2. 개선된 이미지 최적화\n\n새로운 이미지 최적화 옵션들이 추가되었습니다:\n\n- **WebP 자동 변환**: 지원되는 브라우저에서 자동으로 WebP 형식 사용\n- **로딩 우선순위**: 중요한 이미지의 우선 로딩 지원\n- **반응형 이미지**: 더 나은 반응형 이미지 지원\n\n### 3. 새로운 메타데이터 API\n\nSEO와 소셜 미디어 최적화를 위한 새로운 메타데이터 API:\n\n```typescript\nimport type { Metadata } from \"next\";\n\nexport const metadata: Metadata = {\n  title: \"My Blog Post\",\n  description: \"An amazing blog post about Next.js\",\n  openGraph: {\n    title: \"My Blog Post\",\n    description: \"An amazing blog post about Next.js\",\n    images: [\"/og-image.jpg\"],\n  },\n};\n```\n\n## 성능 개선사항\n\n### 빌드 시간 단축\n\n- **증분 빌드**: 변경된 부분만 다시 빌드\n- **병렬 처리**: 더 많은 작업을 병렬로 처리\n- **캐시 최적화**: 더 효율적인 빌드 캐시\n\n### 런타임 성능\n\n- **번들 크기 감소**: Tree-shaking 개선으로 더 작은 번들\n- **코드 스플리팅**: 더 지능적인 코드 분할\n- **프리페칭**: 향상된 페이지 프리페칭\n\n## 마이그레이션 가이드\n\nNext.js 14에서 15로 업그레이드하는 방법:\n\n```bash\nnpm install next@latest react@latest react-dom@latest\n```\n\n주요 변경사항:\n\n- Node.js 18.17 이상 필요\n- React 19 호환성 확인\n- 사용 중단된 API 제거\n\n## 결론\n\nNext.js 15는 성능, 개발자 경험, 그리고 프로덕션 최적화 측면에서 많은 개선을 가져왔습니다. React 19와의 완벽한 통합과 Turbopack의 안정화로 더욱 빠르고 효율적인 개발이 가능해졌습니다.\n\n새로운 기능들을 활용해 더 나은 웹 애플리케이션을 구축해보세요!\n",
+      "content_text": "Next.js 15에서 도입된 주요 기능들과 개선사항을 살펴봅니다.",
+      "url": "https://yourdomain.github.io/posts/nextjs-15-features/",
+      "date_published": "2024-12-01T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Blog Author",
+          "url": "https://yourdomain.github.io"
+        }
+      ],
+      "tags": [
+        "nextjs",
+        "react",
+        "web development",
+        "javascript"
+      ]
+    },
+    {
+      "id": "https://yourdomain.github.io/posts/react-19-guide/",
+      "title": "React 19 완벽 가이드",
+      "content_html": "\n# React 19 완벽 가이드\n\nReact 19가 정식 출시되면서 프론트엔드 개발에 많은 변화를 가져왔습니다. 이번 글에서는 React 19의 주요 기능들과 실제 사용법을 알아보겠습니다.\n\n## 새로운 훅들\n\n### use() 훅\n\n가장 주목받는 새로운 훅은 `use()`입니다. 이 훅을 통해 Promise와 Context를 더 쉽게 다룰 수 있습니다.\n\n```javascript\nimport { use, Suspense } from 'react'\n\nfunction UserComponent({ userPromise }) {\n  // Promise를 직접 사용할 수 있습니다\n  const user = use(userPromise)\n  \n  return <div>안녕하세요, {user.name}님!</div>\n}\n\nfunction App() {\n  const userPromise = fetch('/api/user').then(res => res.json())\n  \n  return (\n    <Suspense fallback={<div>로딩중...</div>}>\n      <UserComponent userPromise={userPromise} />\n    </Suspense>\n  )\n}\n```\n\n### useOptimistic() 훅\n\n낙관적 업데이트를 쉽게 구현할 수 있는 새로운 훅입니다:\n\n```javascript\nimport { useOptimistic, useState } from 'react'\n\nfunction TodoList() {\n  const [todos, setTodos] = useState([])\n  const [optimisticTodos, addOptimisticTodo] = useOptimistic(\n    todos,\n    (currentTodos, newTodo) => [...currentTodos, newTodo]\n  )\n\n  async function addTodo(formData) {\n    const newTodo = { id: Date.now(), text: formData.get('text') }\n    \n    // 즉시 UI 업데이트\n    addOptimisticTodo(newTodo)\n    \n    // 서버에 실제 요청\n    try {\n      const savedTodo = await saveTodo(newTodo)\n      setTodos(prev => [...prev, savedTodo])\n    } catch (error) {\n      // 에러 시 자동으로 이전 상태로 롤백\n      console.error('할 일 저장 실패:', error)\n    }\n  }\n\n  return (\n    <div>\n      {optimisticTodos.map(todo => (\n        <div key={todo.id}>{todo.text}</div>\n      ))}\n      <form action={addTodo}>\n        <input name=\"text\" placeholder=\"새 할 일\" />\n        <button type=\"submit\">추가</button>\n      </form>\n    </div>\n  )\n}\n```\n\n## 서버 컴포넌트 개선\n\n### 향상된 성능\n\nReact 19에서는 서버 컴포넌트의 성능이 크게 개선되었습니다:\n\n- **스트리밍 최적화**: 더 빠른 초기 페이지 로드\n- **선택적 하이드레이션**: 필요한 부분만 하이드레이션\n- **메모리 사용량 감소**: 서버 메모리 효율성 향상\n\n```javascript\n// 서버 컴포넌트에서 비동기 데이터 처리\nasync function BlogPost({ id }) {\n  // 서버에서 직접 데이터베이스 쿼리\n  const post = await db.posts.findById(id)\n  const comments = await db.comments.findByPostId(id)\n  \n  return (\n    <article>\n      <h1>{post.title}</h1>\n      <p>{post.content}</p>\n      <Comments comments={comments} />\n    </article>\n  )\n}\n```\n\n## 새로운 컴파일러\n\n### React Compiler\n\nReact 19에는 새로운 컴파일러가 포함되어 자동 최적화를 제공합니다:\n\n```javascript\n// 이제 수동으로 메모이제이션할 필요가 없습니다\nfunction ExpensiveComponent({ data, filter }) {\n  // 컴파일러가 자동으로 최적화\n  const filteredData = data.filter(item => \n    item.category === filter\n  )\n  \n  const processedData = filteredData.map(item => ({\n    ...item,\n    processed: true\n  }))\n  \n  return (\n    <div>\n      {processedData.map(item => (\n        <div key={item.id}>{item.name}</div>\n      ))}\n    </div>\n  )\n}\n```\n\n## 폼 처리 개선\n\n### 새로운 formAction\n\n폼 처리가 더욱 간단해졌습니다:\n\n```javascript\nfunction ContactForm() {\n  async function handleSubmit(formData) {\n    'use server' // 서버 액션\n    \n    const email = formData.get('email')\n    const message = formData.get('message')\n    \n    await sendEmail({ email, message })\n    redirect('/thank-you')\n  }\n  \n  return (\n    <form action={handleSubmit}>\n      <input name=\"email\" type=\"email\" required />\n      <textarea name=\"message\" required />\n      <button type=\"submit\">전송</button>\n    </form>\n  )\n}\n```\n\n## 마이그레이션 팁\n\n### 주요 변경사항\n\n1. **StrictMode 강화**: 개발 모드에서 더 엄격한 검사\n2. **레거시 API 제거**: 일부 오래된 API가 제거됨\n3. **TypeScript 지원 개선**: 더 나은 타입 추론\n\n### 업그레이드 체크리스트\n\n- [ ] React 18에서 안정적으로 작동하는지 확인\n- [ ] 사용 중단된 API 사용 여부 점검\n- [ ] 테스트 케이스 업데이트\n- [ ] 의존성 라이브러리 호환성 확인\n\n```bash\n# 업그레이드 명령어\nnpm install react@19 react-dom@19\n\n# 또는 yarn\nyarn add react@19 react-dom@19\n```\n\n## 성능 개선사항\n\n### 번들 크기 감소\n\n- **Tree Shaking 개선**: 더 정확한 사용하지 않는 코드 제거\n- **코드 스플리팅**: 자동화된 청크 분할\n- **압축 최적화**: 더 작은 프로덕션 번들\n\n### 런타임 성능\n\n- **메모리 사용량 감소**: 더 효율적인 메모리 관리\n- **렌더링 최적화**: 불필요한 리렌더링 방지\n- **이벤트 처리**: 더 빠른 이벤트 처리\n\n## 결론\n\nReact 19는 개발자 경험과 성능 모두에서 큰 발전을 이뤘습니다. 새로운 훅들과 컴파일러 최적화로 더 깔끔하고 효율적인 코드를 작성할 수 있게 되었습니다.\n\n점진적으로 새로운 기능들을 도입하면서 React 19의 장점을 최대한 활용해보세요!",
+      "content_text": "React 19의 새로운 기능들과 변경사항을 자세히 알아봅니다.",
+      "url": "https://yourdomain.github.io/posts/react-19-guide/",
+      "date_published": "2024-11-15T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Blog Author",
+          "url": "https://yourdomain.github.io"
+        }
+      ],
+      "tags": [
+        "react",
+        "javascript",
+        "frontend",
+        "web development"
+      ]
+    },
+    {
+      "id": "https://yourdomain.github.io/posts/hello-world/",
+      "title": "Hello World",
+      "content_html": "\n# Hello World\n\n이것은 첫 번째 MDX 블로그 포스트입니다.\n\n## MDX의 장점\n\n- React 컴포넌트를 마크다운에 직접 사용할 수 있습니다\n- 정적 생성으로 빠른 로딩 속도\n- SEO 최적화\n\n## 코드 하이라이팅 테스트\n\n### JavaScript 예제\n\n```javascript\nfunction greetUser(name) {\n  const greeting = `Hello, ${name}!`;\n  console.log(greeting);\n  return greeting;\n}\n\n// 함수 호출\ngreetUser(\"World\");\n```\n\n### TypeScript 예제\n\n```typescript\ninterface User {\n  id: number;\n  name: string;\n  email: string;\n}\n\nconst createUser = (userData: Omit<User, 'id'>): User => {\n  return {\n    id: Math.random(),\n    ...userData,\n  };\n};\n```\n\n### React 컴포넌트 예제\n\n```tsx\nimport React, { useState } from 'react';\n\nconst Counter: React.FC = () => {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <p>Count: {count}</p>\n      <button onClick={() => setCount(count + 1)}>\n        Increment\n      </button>\n    </div>\n  );\n};\n\nexport default Counter;\n```\n\n### CSS 예제\n\n```css\n.code-block {\n  background-color: #f5f5f5;\n  border-radius: 8px;\n  padding: 1rem;\n  overflow-x: auto;\n}\n\n.dark .code-block {\n  background-color: #1a1a1a;\n  color: #e5e5e5;\n}\n```\n\n이제 블로그가 준비되었습니다!",
+      "content_text": "첫 번째 블로그 포스트입니다.",
+      "url": "https://yourdomain.github.io/posts/hello-world/",
+      "date_published": "2024-01-01T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Blog Author",
+          "url": "https://yourdomain.github.io"
+        }
+      ],
+      "tags": [
+        "nextjs",
+        "blog",
+        "mdx"
+      ]
+    }
+  ]
+}
