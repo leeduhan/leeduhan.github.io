@@ -3,4 +3,4 @@ Allow: /
 Disallow: /private/
 Disallow: /admin/
 
-Sitemap: https://yourdomain.github.io/sitemap.xml
+Sitemap: https://leeduhan.github.io/sitemap.xml
