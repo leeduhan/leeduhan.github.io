@@ -7,9 +7,39 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Mon, 02 Jun 2025 07:19:47 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 10 Jun 2025 10:29:41 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
+    <item>
+      <title><![CDATA[Claude Code로 개발 워크플로우 - Git Subcommand 설치 및 사용법]]></title>
+      <description><![CDATA[Git Worktree를 활용한 효율적인 개발 환경 구성]]></description>
+      <link>https://leeduhan.github.io/posts/claude/2025-06-10-development-workflow-with-cloud-code-3/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/claude/2025-06-10-development-workflow-with-cloud-code-3/</guid>
+      <pubDate>Tue, 10 Jun 2025 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (이두한)</author>
+      <category>git worktree</category><category>Claude Code</category><category>Jira</category><category>개발 환경</category><category>자동화</category>
+    </item>
+  
+    <item>
+      <title><![CDATA[Claude Code로 개발 워크플로우]]></title>
+      <description><![CDATA[Claude Code를 활용한 효율적인 개발 워크플로우 구축 방법]]></description>
+      <link>https://leeduhan.github.io/posts/claude/2025-06-10-development-workflow-with-cloud-code-1/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/claude/2025-06-10-development-workflow-with-cloud-code-1/</guid>
+      <pubDate>Tue, 10 Jun 2025 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (이두한)</author>
+      <category>Claude Code</category><category>Jira</category><category>git worktree</category><category>CLAUDE.md</category><category>개발 워크플로우</category><category>자동화</category><category>PR</category><category>VS Code</category>
+    </item>
+  
+    <item>
+      <title><![CDATA[Claude Code로 개발 워크플로우 - CLAUDE.md 작성법]]></title>
+      <description><![CDATA[Claude Code와 함께 사용할 CLAUDE.md 파일 작성 가이드]]></description>
+      <link>https://leeduhan.github.io/posts/claude/2025-06-10-claude-md-guide/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/claude/2025-06-10-claude-md-guide/</guid>
+      <pubDate>Tue, 10 Jun 2025 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (이두한)</author>
+      <category>CLAUDE.md</category><category>Claude Code</category><category>AGENTS.md</category><category>프로젝트 가이드</category><category>커스터마이징</category><category>코드 스타일</category><category>TypeScript</category><category>tRPC</category>
+    </item>
+  
     <item>
       <title><![CDATA[AI 투자의 명암: NVIDIA vs Palantir 완전 해부 분석]]></title>
       <description><![CDATA[증권사 애널리스트와 기관투자자들의 말과 행동이 67-88% 다르다는 충격적인 발견! NVIDIA는 조심스럽게 접근하고, Palantir는 지금 사면 안 되는 이유를 데이터로 분석했습니다. 피터 틸이 1조원어치 주식을 파는 진짜 이유는?]]></description>
