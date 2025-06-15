@@ -7,7 +7,7 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Sun, 15 Jun 2025 13:14:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 15 Jun 2025 14:48:12 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
     <item>
@@ -21,13 +21,23 @@
     </item>
   
     <item>
+      <title><![CDATA[Claude Code로 개발 워크플로우 - Slash Command 설치 및 사용법]]></title>
+      <description><![CDATA[Claude Code의 Slash Command 기능 소개와 ai-commit 명령어 설치 가이드. 워크플로우 자동화를 위한 실용적인 팁과 문제점 해결 방법을 다룹니다.]]></description>
+      <link>https://leeduhan.github.io/posts/claude/2025-06-15-development-workflow-with-cloud-code-4/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/claude/2025-06-15-development-workflow-with-cloud-code-4/</guid>
+      <pubDate>Sun, 15 Jun 2025 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (이두한)</author>
+      <category>Claude Code</category><category>클로드 코드</category><category>바이브 코딩</category><category>Vibe Coding</category><category>Slash Command</category><category>Git</category><category>AI</category><category>개발 도구</category><category>자동화</category><category>워크플로우</category><category>ai-commit</category>
+    </item>
+  
+    <item>
       <title><![CDATA[Claude Code로 개발 워크플로우 - Git Subcommand 설치 및 사용법]]></title>
       <description><![CDATA[Git Worktree를 활용한 효율적인 개발 환경 구성]]></description>
       <link>https://leeduhan.github.io/posts/claude/2025-06-10-development-workflow-with-cloud-code-3/</link>
       <guid isPermaLink="true">https://leeduhan.github.io/posts/claude/2025-06-10-development-workflow-with-cloud-code-3/</guid>
       <pubDate>Tue, 10 Jun 2025 00:00:00 GMT</pubDate>
       <author>greenandsnow@gmail.com (이두한)</author>
-      <category>git worktree</category><category>Claude Code</category><category>클로드 코드</category><category>Jira</category><category>개발 환경</category><category>자동화</category>
+      <category>git worktree</category><category>Claude Code</category><category>클로드 코드</category><category>바이브 코딩</category><category>Vibe Coding</category><category>Jira</category><category>개발 환경</category><category>자동화</category>
     </item>
   
     <item>
@@ -37,7 +47,7 @@
       <guid isPermaLink="true">https://leeduhan.github.io/posts/claude/2025-06-10-development-workflow-with-cloud-code-1/</guid>
       <pubDate>Tue, 10 Jun 2025 00:00:00 GMT</pubDate>
       <author>greenandsnow@gmail.com (이두한)</author>
-      <category>Claude Code</category><category>클로드 코드</category><category>Jira</category><category>git worktree</category><category>CLAUDE.md</category><category>개발 워크플로우</category>
+      <category>Claude Code</category><category>클로드 코드</category><category>Jira</category><category>git worktree</category><category>CLAUDE.md</category><category>개발 워크플로우</category><category>바이브 코딩</category><category>Vibe Coding</category>
     </item>
   
     <item>
@@ -47,7 +57,7 @@
       <guid isPermaLink="true">https://leeduhan.github.io/posts/claude/2025-06-10-claude-md-guide/</guid>
       <pubDate>Tue, 10 Jun 2025 00:00:00 GMT</pubDate>
       <author>greenandsnow@gmail.com (이두한)</author>
-      <category>CLAUDE.md</category><category>AGENTS.md</category><category>프로젝트 가이드</category><category>코드 스타일</category><category>TypeScript</category><category>Claude Code</category><category>클로드 코드</category>
+      <category>CLAUDE.md</category><category>AGENTS.md</category><category>프로젝트 가이드</category><category>코드 스타일</category><category>TypeScript</category><category>Claude Code</category><category>클로드 코드</category><category>바이브 코딩</category><category>Vibe Coding</category>
     </item>
   
     <item>
