@@ -822,6 +822,53 @@ cat > /tmp/git-wt-jira << 'JIRA_SCRIPT'
 
 set -e
 
+# 전역 에러 핸들러
+trap 'handle_error $? $LINENO $BASH_LINENO "$BASH_COMMAND" $(printf "%s " "${FUNCNAME[@]}")' ERR
+
+handle_error() {
+    local exit_code=$1
+    local line_no=$2
+    local bash_lineno=$3
+    local last_command=$4
+    local func_stack=$5
+    
+    echo ""
+    echo "💥 Unexpected error occurred!"
+    echo "❌ Exit code: $exit_code"
+    echo "📍 Line: $line_no"
+    echo "🔧 Command: $last_command"
+    if [[ -n "$func_stack" ]] && [[ "$func_stack" != "main" ]]; then
+        echo "📚 Function: $func_stack"
+    fi
+    echo ""
+    echo "🔍 Debug information:"
+    echo "   Working directory: $(pwd)"
+    echo "   Git status: $(git status --porcelain 2>/dev/null | wc -l | tr -d ' ') files changed"
+    echo "   Available space: $(df -h . | tail -1 | awk '{print $4}') free"
+    echo "   Git version: $(git --version 2>/dev/null || echo 'Git not found')"
+    echo ""
+    echo "🆘 Troubleshooting:"
+    echo "   1. Check the error message above"
+    echo "   2. Ensure you're in a Git repository: git status"
+    echo "   3. Check file permissions: ls -la ."
+    echo "   4. Verify network connection: ping github.com"
+    echo "   5. Try again with verbose output: bash -x git-wt-jira $*"
+    echo "   6. Report issue with the debug information above"
+    echo ""
+    echo "🧹 Cleanup:"
+    if [[ -n "${WORKTREE_PATH:-}" ]] && [[ -d "${WORKTREE_PATH}" ]]; then
+        echo "   Removing partially created worktree: $WORKTREE_PATH"
+        cd "$GIT_ROOT" 2>/dev/null || true
+        git worktree remove "$WORKTREE_PATH" --force 2>/dev/null || rm -rf "$WORKTREE_PATH" 2>/dev/null || true
+    fi
+    if [[ -n "${BRANCH_NAME:-}" ]] && git show-ref --verify --quiet "refs/heads/$BRANCH_NAME" 2>/dev/null; then
+        echo "   Removing partially created branch: $BRANCH_NAME"
+        git branch -D "$BRANCH_NAME" 2>/dev/null || true
+    fi
+    
+    exit $exit_code
+}
+
 VERSION="1.0.0"
 
 # 버전 정보
@@ -839,8 +886,11 @@ Create a git worktree from Jira issue with automatic dependency installation.
 
 Examples:
   git wt-jira QAT-3349                    # Create fix/QAT-3349 from current branch
-  git wt-jira PROJ-123                    # Create feature/PROJ-123 from current branch
-  git wt-jira QAT-3349 develop           # Create fix/QAT-3349 from develop branch
+  git wt-jira JNS-12                      # Create feature/JNS-12 from current branch
+  git wt-jira JNS-memo-12                 # Create feature/JNS-memo-12 from current branch
+  git wt-jira 12                          # Create feature/12 from current branch
+  git wt-jira JN-memo                     # Create feature/JN-memo from current branch
+  git wt-jira PROJ-123 develop           # Create feature/PROJ-123 from develop branch
   git wt-jira https://company.atlassian.net/browse/QAT-3349
 
 Branch Naming Rules:
@@ -857,6 +907,7 @@ Features:
   ✅ Smart branch naming conventions
   ✅ Comprehensive error checking
   ✅ Works in any Git repository
+  ✅ Flexible issue key patterns (supports any format)
 
 Global Installation:
   This tool is globally installed and available in all Git repositories.
@@ -867,13 +918,33 @@ fi
 JIRA_INPUT="$1"
 BASE_BRANCH="${2:-$(git branch --show-current 2>/dev/null)}"
 
-# Jira 이슈 키 추출
-ISSUE_KEY=$(echo "$JIRA_INPUT" | grep -o '[A-Z]\+-[0-9]\+')
-if [[ -z "$ISSUE_KEY" ]]; then
-    echo "❌ Error: No issue key found in: $JIRA_INPUT"
-    echo "💡 Cause: URL doesn't contain valid Jira issue pattern (ABC-123)"
-    echo "🔧 Solution: Use format like QAT-3349 or full Jira URL"
-    exit 1
+# Jira 이슈 키 추출 - 더 유연한 방식
+if [[ "$JIRA_INPUT" == *"atlassian.net"* ]] || [[ "$JIRA_INPUT" == *"/browse/"* ]]; then
+    # Jira URL에서 이슈 키 추출
+    ISSUE_KEY=$(echo "$JIRA_INPUT" | grep -o '[A-Z]\+-[0-9]\+')
+    if [[ -z "$ISSUE_KEY" ]]; then
+        echo "❌ Error: No valid issue key found in URL: $JIRA_INPUT"
+        echo "💡 Cause: URL doesn't contain valid Jira issue pattern (ABC-123)"
+        echo "🔧 Solution: Use format like QAT-3349 or valid Jira URL"
+        exit 1
+    fi
+else
+    # URL이 아니면 입력값을 그대로 이슈 키로 사용
+    ISSUE_KEY="$JIRA_INPUT"
+    
+    # 빈 값 또는 공백만 있는 경우 체크
+    if [[ -z "${ISSUE_KEY// }" ]]; then
+        echo "❌ Error: Empty issue key provided"
+        echo "💡 Cause: No issue key or branch name specified"
+        echo "🔧 Solution: Provide an issue key like 'QAT-3349', 'JNS-memo-12', or '12'"
+        exit 1
+    fi
+    
+    # 공백이나 특수문자가 있으면 경고 (하지만 허용)
+    if [[ "$ISSUE_KEY" =~ [[:space:]] ]]; then
+        echo "⚠️ Warning: Issue key contains spaces, they will be preserved in branch name"
+        echo "💡 Consider using hyphens (-) or underscores (_) instead of spaces"
+    fi
 fi
 
 echo "🚀 Jira Worktree Setup: $ISSUE_KEY"
@@ -884,6 +955,17 @@ if [[ -z "$GIT_ROOT" ]]; then
     echo "❌ Error: Not in a git repository"
     echo "💡 Cause: Current directory is not part of a git repository"
     echo "🔧 Solution: Navigate to your project root or run 'git init'"
+    echo "📍 Current directory: $(pwd)"
+    echo "🔍 Looking for .git directory..."
+    if [[ -d ".git" ]]; then
+        echo "   ✅ Found .git directory here"
+        echo "   ❌ But git command failed - check git installation"
+        echo "   🔧 Try: git --version"
+    else
+        echo "   ❌ No .git directory found"
+        echo "   🔧 Try: git init (to create new repo) or cd to existing repo"
+        echo "   🔧 Or: git clone <repository-url> (to clone existing repo)"
+    fi
     exit 1
 fi
 
@@ -897,12 +979,13 @@ if [[ "$CURRENT_DIR" != "$GIT_ROOT" ]]; then
     cd "$GIT_ROOT"
 fi
 
-# 워크트리 설정 - QAT는 fix/, 나머지는 feature/
+# 워크트리 설정 - QAT로 시작하면 fix/, 나머지는 feature/
 if [[ "$ISSUE_KEY" == QAT-* ]]; then
     BRANCH_PREFIX="fix"
     echo "🐛 QAT 이슈 감지 - 버그 수정 브랜치로 생성됩니다"
 else
     BRANCH_PREFIX="feature"
+    echo "✨ 기능 개발 브랜치로 생성됩니다"
 fi
 
 TARGET_WORKTREE_NAME="$BRANCH_PREFIX-$ISSUE_KEY"
@@ -936,11 +1019,86 @@ fi
 # 새 워크트리 생성을 위한 검증
 echo "🔍 Checking prerequisites..."
 
+# Git 버전 확인
+GIT_VERSION=$(git --version | grep -o '[0-9]\+\.[0-9]\+\.[0-9]\+' | head -1)
+if [[ -n "$GIT_VERSION" ]]; then
+    MAJOR=$(echo "$GIT_VERSION" | cut -d. -f1)
+    MINOR=$(echo "$GIT_VERSION" | cut -d. -f2)
+    if [[ $MAJOR -lt 2 ]] || [[ $MAJOR -eq 2 && $MINOR -lt 5 ]]; then
+        echo "❌ Error: Git version too old: $GIT_VERSION"
+        echo "💡 Cause: Git worktree requires version 2.5 or higher"
+        echo ""
+        echo "🔧 Solutions:"
+        echo "   1. Update Git: brew upgrade git (macOS with Homebrew)"
+        echo "   2. Install latest Git: https://git-scm.com/downloads"
+        echo "   3. Check current version: git --version"
+        echo "   4. Alternative: Use regular branches instead of worktrees"
+        exit 1
+    fi
+fi
+
+# 디스크 공간 확인 (macOS/Linux 호환)
+AVAILABLE_SPACE_KB=$(df . | tail -1 | awk '{print $4}')
+if [[ $AVAILABLE_SPACE_KB -lt 100000 ]]; then  # 100MB 미만
+    AVAILABLE_SPACE_MB=$((AVAILABLE_SPACE_KB / 1024))
+    echo "⚠️ Warning: Low disk space: ${AVAILABLE_SPACE_MB}MB available"
+    echo "💡 Cause: Insufficient space may cause installation failures"
+    echo ""
+    echo "🔧 Solutions:"
+    echo "   1. Free up space: Empty Trash, remove unused files"
+    echo "   2. Check space: df -h ."
+    echo "   3. Clean Git cache: git gc --aggressive"
+    echo "   4. Clean package manager cache:"
+    echo "      npm cache clean --force"
+    echo "      yarn cache clean"
+    echo "      pnpm store prune"
+    echo ""
+    read -p "Continue anyway? (y/N): " -n 1 -r
+    echo ""
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        echo "Installation cancelled due to low disk space."
+        exit 1
+    fi
+fi
+
+# 권한 확인
+if [[ ! -w "." ]]; then
+    echo "❌ Error: No write permission in current directory"
+    echo "💡 Cause: Cannot create .worktrees directory"
+    echo "📍 Directory: $(pwd)"
+    echo "📋 Permissions: $(ls -ld . | awk '{print $1, $3, $4}')"
+    echo ""
+    echo "🔧 Solutions:"
+    echo "   1. Change permissions: chmod 755 ."
+    echo "   2. Change ownership: sudo chown \$(whoami) ."
+    echo "   3. Navigate to writable directory: cd ~/ && git clone <repo>"
+    echo "   4. Contact repository administrator"
+    exit 1
+fi
+
 # Base 브랜치 존재 확인
 if ! git show-ref --verify --quiet "refs/heads/$BASE_BRANCH"; then
     echo "❌ Error: Base branch '$BASE_BRANCH' not found"
     echo "💡 Cause: Branch doesn't exist in local repository"
-    echo "🔧 Solution: Use 'git branch -a' to see available branches or fetch from origin"
+    echo "📍 Current available branches:"
+    echo "   Local branches:"
+    git branch --list | head -10 | sed 's/^/     /'
+    if [[ $(git branch --list | wc -l) -gt 10 ]]; then
+        echo "     ... and $(($(git branch --list | wc -l) - 10)) more"
+    fi
+    echo ""
+    echo "   Remote branches:"
+    git branch -r 2>/dev/null | head -5 | sed 's/^/     /' || echo "     No remote branches found"
+    if [[ $(git branch -r 2>/dev/null | wc -l) -gt 5 ]]; then
+        echo "     ... and $(($(git branch -r 2>/dev/null | wc -l) - 5)) more"
+    fi
+    echo ""
+    echo "🔧 Solutions:"
+    echo "   1. Use existing branch: git wt-jira $ISSUE_KEY <existing-branch>"
+    echo "   2. Create base branch: git checkout -b $BASE_BRANCH"
+    echo "   3. Fetch from remote: git fetch origin"
+    echo "   4. Checkout remote branch: git checkout -b $BASE_BRANCH origin/$BASE_BRANCH"
+    echo "   5. See all branches: git branch -a"
     exit 1
 fi
 
@@ -948,14 +1106,33 @@ fi
 if ! git diff --quiet; then
     echo "❌ Error: Uncommitted changes detected in working directory"
     echo "💡 Cause: You have modified files that aren't committed"
-    echo "🔧 Solution: Commit your changes with 'git commit -am \"message\"' or stash with 'git stash'"
+    echo ""
+    echo "📋 Modified files:"
+    git status --short | head -10 | sed 's/^/   /'
+    if [[ $(git status --short | wc -l) -gt 10 ]]; then
+        echo "   ... and $(($(git status --short | wc -l) - 10)) more files"
+    fi
+    echo ""
+    echo "🔧 Solutions (choose one):"
+    echo "   1. Commit changes: git add . && git commit -m 'Save current work'"
+    echo "   2. Stash changes: git stash push -m 'Work in progress for $ISSUE_KEY'"
+    echo "   3. Discard changes: git checkout -- . (⚠️ WARNING: This will lose changes!)"
+    echo "   4. See detailed status: git status"
+    echo "   5. See what changed: git diff"
     exit 1
 fi
 
 if ! git diff --cached --quiet; then
     echo "❌ Error: Staged changes detected"
     echo "💡 Cause: You have staged files waiting to be committed"
-    echo "🔧 Solution: Commit staged changes with 'git commit -m \"message\"' or unstage with 'git reset'"
+    echo ""
+    echo "📋 Staged files:"
+    git diff --cached --name-only | sed 's/^/   /'
+    echo ""
+    echo "🔧 Solutions (choose one):"
+    echo "   1. Commit staged files: git commit -m 'Save staged work'"
+    echo "   2. Unstage files: git reset"
+    echo "   3. See staged changes: git diff --cached"
     exit 1
 fi
 
@@ -963,7 +1140,21 @@ fi
 if git show-ref --verify --quiet "refs/heads/$BRANCH_NAME"; then
     echo "❌ Error: Branch already exists: $BRANCH_NAME"
     echo "💡 Cause: This feature branch was already created"
-    echo "🔧 Solution: Use different issue key or delete existing branch with 'git branch -d $BRANCH_NAME'"
+    echo ""
+    echo "📋 Existing branch info:"
+    EXISTING_COMMIT=$(git rev-parse --short "$BRANCH_NAME" 2>/dev/null)
+    EXISTING_MESSAGE=$(git log -1 --pretty=format:"%s" "$BRANCH_NAME" 2>/dev/null)
+    echo "   Commit: $EXISTING_COMMIT"
+    echo "   Message: $EXISTING_MESSAGE"
+    echo "   Created: $(git log -1 --pretty=format:"%cr" "$BRANCH_NAME" 2>/dev/null)"
+    echo ""
+    echo "🔧 Solutions (choose one):"
+    echo "   1. Use different issue key: git wt-jira ${ISSUE_KEY}-v2"
+    echo "   2. Delete existing branch: git branch -d $BRANCH_NAME"
+    echo "   3. Force delete if needed: git branch -D $BRANCH_NAME"
+    echo "   4. Switch to existing branch: git checkout $BRANCH_NAME"
+    echo "   5. Check existing worktree: git wt-list"
+    echo "   6. See branch history: git log --oneline $BRANCH_NAME"
     exit 1
 fi
 
@@ -974,10 +1165,42 @@ mkdir -p .worktrees
 
 # 워크트리 생성
 echo "🌿 Creating worktree..."
-if ! git worktree add "$WORKTREE_PATH" -b "$BRANCH_NAME" "$BASE_BRANCH"; then
+if ! git worktree add "$WORKTREE_PATH" -b "$BRANCH_NAME" "$BASE_BRANCH" 2>/tmp/worktree_error.log; then
     echo "❌ Error: Failed to create worktree"
     echo "💡 Cause: Git worktree command failed"
-    echo "🔧 Solution: Check git version (requires 2.5+) and repository state"
+    echo ""
+    echo "📋 Error details:"
+    if [[ -f /tmp/worktree_error.log ]]; then
+        cat /tmp/worktree_error.log | sed 's/^/   /'
+        rm -f /tmp/worktree_error.log
+    fi
+    echo ""
+    echo "🔍 Common causes and solutions:"
+    echo "   1. Git version too old:"
+    echo "      Check version: git --version"
+    echo "      Requires: Git 2.5+ (worktree support)"
+    echo "      Solution: Update Git"
+    echo ""
+    echo "   2. Directory permission issues:"
+    echo "      Check permissions: ls -la $(dirname "$WORKTREE_PATH")"
+    echo "      Solution: chmod 755 $(dirname "$WORKTREE_PATH") or choose different location"
+    echo ""
+    echo "   3. Disk space issues:"
+    echo "      Check space: df -h ."
+    echo "      Solution: Free up disk space"
+    echo ""
+    echo "   4. Path already exists:"
+    echo "      Check: ls -la \"$WORKTREE_PATH\""
+    echo "      Solution: Remove directory or use different issue key"
+    echo ""
+    echo "   5. Git repository corruption:"
+    echo "      Check: git fsck"
+    echo "      Solution: git gc or repository repair"
+    echo ""
+    echo "🔧 Debug commands:"
+    echo "   git worktree list"
+    echo "   git branch -a"
+    echo "   git status"
     exit 1
 fi
 
@@ -988,63 +1211,249 @@ echo "✅ Worktree created: $(pwd)"
 # 의존성 설치
 echo "📦 Installing dependencies..."
 
+# 네트워크 연결 확인 (의존성이 있는 경우만)
+if [[ -f "pnpm-lock.yaml" ]] || [[ -f "package-lock.json" ]] || [[ -f "yarn.lock" ]]; then
+    echo "🌐 Checking network connectivity..."
+    if ! ping -c 1 -W 3000 registry.npmjs.org >/dev/null 2>&1; then
+        echo "⚠️ Warning: Cannot reach NPM registry"
+        echo "💡 Cause: Network connectivity issues"
+        echo ""
+        echo "🔧 Solutions:"
+        echo "   1. Check internet connection"
+        echo "   2. Check firewall/proxy settings"
+        echo "   3. Try different registry: npm config set registry https://registry.npmjs.org/"
+        echo "   4. Use VPN if behind corporate firewall"
+        echo "   5. Skip dependencies for now"
+        echo ""
+        read -p "Continue without installing dependencies? (y/N): " -n 1 -r
+        echo ""
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            echo "Installation cancelled due to network issues."
+            cd "$GIT_ROOT"
+            git worktree remove "$WORKTREE_PATH" --force 2>/dev/null || rm -rf "$WORKTREE_PATH"
+            git branch -D "$BRANCH_NAME" 2>/dev/null
+            exit 1
+        fi
+        echo "⏭️ Skipping dependency installation due to network issues"
+        echo ""
+    else
+        echo "✅ Network connectivity confirmed"
+    fi
+fi
+
 if [[ -f "pnpm-lock.yaml" ]]; then
     echo "📦 Installing with pnpm..."
     if command -v pnpm >/dev/null 2>&1; then
-        if pnpm install; then
-            echo "✅ Dependencies installed with pnpm"
-        else
+        if ! pnpm install 2>/tmp/pnpm_error.log; then
             echo "❌ Error: pnpm install failed"
             echo "💡 Cause: Dependency installation error"
-            echo "🔧 Solution: Check network connection and run 'pnpm install --verbose' for details"
-            exit 1
+            echo ""
+            echo "📋 Error details:"
+            if [[ -f /tmp/pnpm_error.log ]]; then
+                tail -20 /tmp/pnpm_error.log | sed 's/^/   /'
+                rm -f /tmp/pnpm_error.log
+            fi
+            echo ""
+            echo "🔧 Solutions (try in order):"
+            echo "   1. Check network: ping registry.npmjs.org"
+            echo "   2. Clear cache: pnpm store prune"
+            echo "   3. Update pnpm: npm install -g pnpm@latest"
+            echo "   4. Delete lockfile: rm pnpm-lock.yaml && pnpm install"
+            echo "   5. Use npm instead: rm pnpm-lock.yaml && npm install"
+            echo "   6. Verbose install: pnpm install --verbose"
+            echo "   7. Skip for now: continue without dependencies"
+            echo ""
+            read -p "Continue without installing dependencies? (y/N): " -n 1 -r
+            echo ""
+            if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+                echo "Installation cancelled. Cleaning up..."
+                cd "$GIT_ROOT"
+                git worktree remove "$WORKTREE_PATH" --force 2>/dev/null || rm -rf "$WORKTREE_PATH"
+                git branch -D "$BRANCH_NAME" 2>/dev/null
+                exit 1
+            fi
+        else
+            echo "✅ Dependencies installed with pnpm"
         fi
     else
         echo "❌ Error: pnpm not found but pnpm-lock.yaml exists"
         echo "💡 Cause: Project uses pnpm but it's not installed"
-        echo "🔧 Solution: Install pnpm with: npm install -g pnpm"
-        exit 1
+        echo ""
+        echo "🔧 Solutions:"
+        echo "   1. Install pnpm: npm install -g pnpm"
+        echo "   2. Install pnpm (alternative): curl -fsSL https://get.pnpm.io/install.sh | sh"
+        echo "   3. Use npm instead: rm pnpm-lock.yaml && npm install"
+        echo "   4. Check if pnpm is in PATH: echo \$PATH"
+        echo ""
+        read -p "Continue without installing dependencies? (y/N): " -n 1 -r
+        echo ""
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            echo "Installation cancelled. Cleaning up..."
+            cd "$GIT_ROOT"
+            git worktree remove "$WORKTREE_PATH" --force 2>/dev/null || rm -rf "$WORKTREE_PATH"
+            git branch -D "$BRANCH_NAME" 2>/dev/null
+            exit 1
+        fi
     fi
 elif [[ -f "package-lock.json" ]]; then
     echo "📦 Installing with npm..."
     if command -v npm >/dev/null 2>&1; then
-        if npm install; then
-            echo "✅ Dependencies installed with npm"
-        else
+        if ! npm install 2>/tmp/npm_error.log; then
             echo "❌ Error: npm install failed"
-            exit 1
+            echo "💡 Cause: Dependency installation error"
+            echo ""
+            echo "📋 Error details:"
+            if [[ -f /tmp/npm_error.log ]]; then
+                tail -20 /tmp/npm_error.log | sed 's/^/   /'
+                rm -f /tmp/npm_error.log
+            fi
+            echo ""
+            echo "🔧 Solutions (try in order):"
+            echo "   1. Check network: ping registry.npmjs.org"
+            echo "   2. Clear cache: npm cache clean --force"
+            echo "   3. Update npm: npm install -g npm@latest"
+            echo "   4. Delete node_modules: rm -rf node_modules && npm install"
+            echo "   5. Delete lockfile: rm package-lock.json && npm install"
+            echo "   6. Verbose install: npm install --verbose"
+            echo "   7. Skip for now: continue without dependencies"
+            echo ""
+            read -p "Continue without installing dependencies? (y/N): " -n 1 -r
+            echo ""
+            if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+                echo "Installation cancelled. Cleaning up..."
+                cd "$GIT_ROOT"
+                git worktree remove "$WORKTREE_PATH" --force 2>/dev/null || rm -rf "$WORKTREE_PATH"
+                git branch -D "$BRANCH_NAME" 2>/dev/null
+                exit 1
+            fi
+        else
+            echo "✅ Dependencies installed with npm"
         fi
     else
         echo "❌ Error: npm not found"
+        echo "💡 Cause: Node.js/npm is not installed"
+        echo ""
+        echo "🔧 Solutions:"
+        echo "   1. Install Node.js: https://nodejs.org/"
+        echo "   2. Install via Homebrew: brew install node"
+        echo "   3. Install via nvm: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash"
+        echo "   4. Check PATH: echo \$PATH"
         exit 1
     fi
 elif [[ -f "yarn.lock" ]]; then
     echo "📦 Installing with yarn..."
     if command -v yarn >/dev/null 2>&1; then
-        if yarn install; then
-            echo "✅ Dependencies installed with yarn"
-        else
+        if ! yarn install 2>/tmp/yarn_error.log; then
             echo "❌ Error: yarn install failed"
-            exit 1
+            echo "💡 Cause: Dependency installation error"
+            echo ""
+            echo "📋 Error details:"
+            if [[ -f /tmp/yarn_error.log ]]; then
+                tail -20 /tmp/yarn_error.log | sed 's/^/   /'
+                rm -f /tmp/yarn_error.log
+            fi
+            echo ""
+            echo "🔧 Solutions (try in order):"
+            echo "   1. Check network: ping registry.yarnpkg.com"
+            echo "   2. Clear cache: yarn cache clean"
+            echo "   3. Update yarn: npm install -g yarn@latest"
+            echo "   4. Delete node_modules: rm -rf node_modules && yarn install"
+            echo "   5. Delete lockfile: rm yarn.lock && yarn install"
+            echo "   6. Verbose install: yarn install --verbose"
+            echo "   7. Use npm instead: rm yarn.lock && npm install"
+            echo "   8. Skip for now: continue without dependencies"
+            echo ""
+            read -p "Continue without installing dependencies? (y/N): " -n 1 -r
+            echo ""
+            if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+                echo "Installation cancelled. Cleaning up..."
+                cd "$GIT_ROOT"
+                git worktree remove "$WORKTREE_PATH" --force 2>/dev/null || rm -rf "$WORKTREE_PATH"
+                git branch -D "$BRANCH_NAME" 2>/dev/null
+                exit 1
+            fi
+        else
+            echo "✅ Dependencies installed with yarn"
         fi
     else
         echo "❌ Error: yarn not found but yarn.lock exists"
-        exit 1
+        echo "💡 Cause: Project uses yarn but it's not installed"
+        echo ""
+        echo "🔧 Solutions:"
+        echo "   1. Install yarn: npm install -g yarn"
+        echo "   2. Install yarn (alternative): curl -o- -L https://yarnpkg.com/install.sh | bash"
+        echo "   3. Use npm instead: rm yarn.lock && npm install"
+        echo "   4. Check if yarn is in PATH: echo \$PATH"
+        echo ""
+        read -p "Continue without installing dependencies? (y/N): " -n 1 -r
+        echo ""
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            echo "Installation cancelled. Cleaning up..."
+            cd "$GIT_ROOT"
+            git worktree remove "$WORKTREE_PATH" --force 2>/dev/null || rm -rf "$WORKTREE_PATH"
+            git branch -D "$BRANCH_NAME" 2>/dev/null
+            exit 1
+        fi
     fi
 else
     echo "⚠️ No lockfile found, skipping dependency installation"
     echo "💡 Available package files:"
     ls -la package* 2>/dev/null || echo "No package files found"
+    echo ""
+    echo "ℹ️ If this is a Node.js project, you can install dependencies later:"
+    echo "   npm install    # for npm projects"
+    echo "   yarn install   # for yarn projects"  
+    echo "   pnpm install   # for pnpm projects"
 fi
 
 # VSCode 실행
 echo "💻 Opening VSCode..."
 if command -v code >/dev/null 2>&1; then
-    code .
-    echo "✅ VSCode opened successfully"
+    if ! code . 2>/tmp/vscode_error.log; then
+        echo "⚠️ VSCode command found but failed to open"
+        echo "💡 Cause: VSCode execution error"
+        echo ""
+        if [[ -f /tmp/vscode_error.log ]]; then
+            echo "📋 Error details:"
+            cat /tmp/vscode_error.log | sed 's/^/   /'
+            rm -f /tmp/vscode_error.log
+        fi
+        echo ""
+        echo "🔧 Solutions:"
+        echo "   1. Try manual open: code $(pwd)"
+        echo "   2. Check VSCode installation: code --version"
+        echo "   3. Reinstall VSCode command: Open VSCode → Command Palette → Shell Command: Install 'code' command"
+        echo "   4. Open manually: Open VSCode and use File → Open Folder"
+        echo "   5. Alternative editors: vim ., nano ., or your preferred editor"
+    else
+        echo "✅ VSCode opened successfully"
+    fi
 else
     echo "⚠️ VSCode 'code' command not found"
-    echo "💡 Open the project manually: code $(pwd)"
+    echo "💡 Cause: VSCode command line tools not installed or not in PATH"
+    echo ""
+    echo "🔧 Solutions:"
+    echo "   1. Install VSCode command line tools:"
+    echo "      • Open VSCode"
+    echo "      • Press Cmd+Shift+P (macOS) or Ctrl+Shift+P"
+    echo "      • Type: Shell Command: Install 'code' command in PATH"
+    echo "      • Press Enter"
+    echo ""
+    echo "   2. Add to PATH manually (if VSCode is installed):"
+    echo "      echo 'export PATH=\"\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin\"' >> ~/.zshrc"
+    echo "      source ~/.zshrc"
+    echo ""
+    echo "   3. Install VSCode: https://code.visualstudio.com/"
+    echo ""
+    echo "   4. Open manually:"
+    echo "      • Open VSCode"
+    echo "      • File → Open Folder"
+    echo "      • Navigate to: $(pwd)"
+    echo ""
+    echo "   5. Use alternative editors:"
+    echo "      vim .     # Vim editor"
+    echo "      nano .    # Nano editor"
+    echo "      open .    # Finder (macOS)"
 fi
 
 # 성공 요약
@@ -1892,10 +2301,6 @@ fi
 
 echo ""
 echo -e "${CYAN}🎉 제거가 완료되었습니다!${NC}"
-echo "제거될 워크트리:"
-for i in "${!WORKTREE_DISPLAY[@]}"; do
-    echo "  📁 ${WORKTREE_DISPLAY[i]}"
-done
 
 # 텍스트 변경 - --search, --uninstall 제거
 echo ""
