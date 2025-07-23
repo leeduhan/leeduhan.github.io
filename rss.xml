@@ -7,9 +7,19 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Tue, 22 Jul 2025 05:30:31 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 23 Jul 2025 11:43:27 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
+    <item>
+      <title><![CDATA[React 타이핑 효과 컴포넌트 만들기 - HTML 태그와 이모지 완벽 지원]]></title>
+      <description><![CDATA[React에서 타이핑 효과를 구현하는 컴포넌트를 만들어봅니다. ReactNode children 지원, 복잡한 이모지 처리, 일시정지/재개 기능 등 다양한 기능을 포함한 완성도 높은 컴포넌트를 구현합니다.]]></description>
+      <link>https://leeduhan.github.io/posts/react/2025-07-23-react-typing-component/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/react/2025-07-23-react-typing-component/</guid>
+      <pubDate>Wed, 23 Jul 2025 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com ()</author>
+      <category>React</category><category>TypeScript</category><category>Component</category><category>Animation</category><category>UI</category><category>Typing Effect React component</category>
+    </item>
+  
     <item>
       <title><![CDATA[AI는 내일자리의 강탈자가 아니다. 내 동료이고 스승이며 후임이다.]]></title>
       <description><![CDATA[AI 개발 도구를 사용하면서 느낀 AI의 역할과 개발자의 미래에 대한 고찰]]></description>
