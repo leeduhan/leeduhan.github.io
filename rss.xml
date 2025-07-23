@@ -7,7 +7,7 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Wed, 23 Jul 2025 11:43:27 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 23 Jul 2025 15:37:19 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
     <item>
@@ -21,11 +21,11 @@
     </item>
   
     <item>
-      <title><![CDATA[AI는 내일자리의 강탈자가 아니다. 내 동료이고 스승이며 후임이다.]]></title>
+      <title><![CDATA[AI는 내 일자리의 강탈자가 아니다. 내 동료이고 스승이며 후임이다.]]></title>
       <description><![CDATA[AI 개발 도구를 사용하면서 느낀 AI의 역할과 개발자의 미래에 대한 고찰]]></description>
       <link>https://leeduhan.github.io/posts/claude/2025-07-11-claude-code-review/</link>
       <guid isPermaLink="true">https://leeduhan.github.io/posts/claude/2025-07-11-claude-code-review/</guid>
-      <pubDate>Fri, 11 Jul 2025 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 22 Jul 2025 00:00:00 GMT</pubDate>
       <author>greenandsnow@gmail.com (zeke)</author>
       <category>AI</category><category>Claude Code</category><category>개발 도구</category><category>생산성</category><category>워크플로우</category><category>Gemini</category>
     </item>
