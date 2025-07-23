@@ -7,7 +7,7 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Wed, 23 Jul 2025 15:37:19 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 23 Jul 2025 15:47:00 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
     <item>
@@ -43,8 +43,8 @@
     <item>
       <title><![CDATA[TanStack Query: useQuery vs useSuspenseQuery 완벽 가이드]]></title>
       <description><![CDATA[TanStack Query의 useQuery와 useSuspenseQuery 훅의 차이점을 실제 코드 예시와 함께 상세히 비교하고, 각각의 장단점과 적절한 사용 시기를 알아봅니다.]]></description>
-      <link>https://leeduhan.github.io/posts/tan-stack-query-use-query-vs-use-suspense-query/</link>
-      <guid isPermaLink="true">https://leeduhan.github.io/posts/tan-stack-query-use-query-vs-use-suspense-query/</guid>
+      <link>https://leeduhan.github.io/posts/react/tan-stack-query-use-query-vs-use-suspense-query/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/react/tan-stack-query-use-query-vs-use-suspense-query/</guid>
       <pubDate>Mon, 23 Jun 2025 00:00:00 GMT</pubDate>
       <author>greenandsnow@gmail.com (Zeke)</author>
       <category>TanStack Query</category><category>React</category><category>Suspense</category><category>useSuspenseQuery</category><category>useQuery</category>
@@ -123,8 +123,8 @@
     <item>
       <title><![CDATA[React 19 완벽 가이드]]></title>
       <description><![CDATA[React 19의 새로운 기능들과 변경사항을 자세히 알아봅니다.]]></description>
-      <link>https://leeduhan.github.io/posts/react-19-guide/</link>
-      <guid isPermaLink="true">https://leeduhan.github.io/posts/react-19-guide/</guid>
+      <link>https://leeduhan.github.io/posts/react/react-19-guide/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/react/react-19-guide/</guid>
       <pubDate>Sun, 01 Jun 2025 00:00:00 GMT</pubDate>
       <author>greenandsnow@gmail.com (Blog Author)</author>
       <category>react</category><category>javascript</category><category>frontend</category><category>web development</category>
@@ -133,8 +133,8 @@
     <item>
       <title><![CDATA[Next.js 15의 새로운 기능들]]></title>
       <description><![CDATA[Next.js 15에서 도입된 주요 기능들과 개선사항을 살펴봅니다.]]></description>
-      <link>https://leeduhan.github.io/posts/nextjs-15-features/</link>
-      <guid isPermaLink="true">https://leeduhan.github.io/posts/nextjs-15-features/</guid>
+      <link>https://leeduhan.github.io/posts/react/nextjs-15-features/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/react/nextjs-15-features/</guid>
       <pubDate>Sun, 01 Jun 2025 00:00:00 GMT</pubDate>
       <author>greenandsnow@gmail.com (Blog Author)</author>
       <category>nextjs</category><category>react</category><category>web development</category><category>javascript</category>

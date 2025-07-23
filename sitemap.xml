@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://leeduhan.github.io</loc>
-<lastmod>2025-07-23T15:37:19.471Z</lastmod>
+<lastmod>2025-07-23T15:47:00.869Z</lastmod>
 <changefreq>weekly</changefreq>
 <priority>1</priority>
 </url>
 <url>
 <loc>https://leeduhan.github.io/about</loc>
-<lastmod>2025-07-23T15:37:19.471Z</lastmod>
+<lastmod>2025-07-23T15:47:00.869Z</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.8</priority>
 </url>
 <url>
 <loc>https://leeduhan.github.io/tags</loc>
-<lastmod>2025-07-23T15:37:19.471Z</lastmod>
+<lastmod>2025-07-23T15:47:00.870Z</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.7</priority>
 </url>
@@ -37,7 +37,7 @@
 <priority>0.8</priority>
 </url>
 <url>
-<loc>https://leeduhan.github.io/posts/tan-stack-query-use-query-vs-use-suspense-query</loc>
+<loc>https://leeduhan.github.io/posts/react/tan-stack-query-use-query-vs-use-suspense-query</loc>
 <lastmod>2025-06-23T00:00:00.000Z</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.8</priority>
@@ -85,13 +85,13 @@
 <priority>0.8</priority>
 </url>
 <url>
-<loc>https://leeduhan.github.io/posts/react-19-guide</loc>
+<loc>https://leeduhan.github.io/posts/react/react-19-guide</loc>
 <lastmod>2025-06-01T00:00:00.000Z</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.8</priority>
 </url>
 <url>
-<loc>https://leeduhan.github.io/posts/nextjs-15-features</loc>
+<loc>https://leeduhan.github.io/posts/react/nextjs-15-features</loc>
 <lastmod>2025-06-01T00:00:00.000Z</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.8</priority>
