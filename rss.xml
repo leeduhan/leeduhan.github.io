@@ -7,9 +7,19 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Wed, 23 Jul 2025 15:47:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 27 Jul 2025 10:18:40 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
+    <item>
+      <title><![CDATA[HTML 데이터 속성(Data Attributes) 완전 가이드]]></title>
+      <description><![CDATA[HTML data 속성 활용법부터 CSS attr() 함수, JavaScript dataset까지. 실무 예제로 배우는 데이터 속성 완전 가이드]]></description>
+      <link>https://leeduhan.github.io/posts/css/html-data-attributes-guide/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/css/html-data-attributes-guide/</guid>
+      <pubDate>Sun, 27 Jul 2025 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (hanlee)</author>
+      <category>HTML</category><category>CSS</category><category>JavaScript</category><category>Data Attributes</category><category>dataset</category><category>attr()</category><category>DOM</category><category>웹개발</category>
+    </item>
+  
     <item>
       <title><![CDATA[React 타이핑 효과 컴포넌트 만들기 - HTML 태그와 이모지 완벽 지원]]></title>
       <description><![CDATA[React에서 타이핑 효과를 구현하는 컴포넌트를 만들어봅니다. ReactNode children 지원, 복잡한 이모지 처리, 일시정지/재개 기능 등 다양한 기능을 포함한 완성도 높은 컴포넌트를 구현합니다.]]></description>
