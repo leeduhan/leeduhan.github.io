@@ -7,9 +7,39 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Sun, 27 Jul 2025 10:18:40 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 19 Aug 2025 11:19:57 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
+    <item>
+      <title><![CDATA[Next.js 15 이미지 최적화 완전 가이드: remotePatterns vs API Route 프록시]]></title>
+      <description><![CDATA[Next.js 15에서 외부 이미지를 처리하는 공식 권장사항과 성능 비교, 상황별 최적 선택 가이드를 상세히 다룹니다.]]></description>
+      <link>https://leeduhan.github.io/posts/react/2025-08-19-nextjs-15-image-optimization-guide/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/react/2025-08-19-nextjs-15-image-optimization-guide/</guid>
+      <pubDate>Tue, 19 Aug 2025 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (zeke)</author>
+      <category>Next.js</category><category>이미지 최적화</category><category>remotePatterns</category><category>성능</category><category>보안</category><category>API Route</category>
+    </item>
+  
+    <item>
+      <title><![CDATA[Next.js 15에서 html2canvas CORS 에러 해결하기: 이미지 프록시 솔루션]]></title>
+      <description><![CDATA[html2canvas 사용 시 외부 CDN 이미지로 인한 CORS 에러를 Next.js API Route 프록시로 완벽 해결한 과정과 다양한 해결 방법들을 상세히 소개합니다.]]></description>
+      <link>https://leeduhan.github.io/posts/react/2025-08-19-html2canvas_cors_guide/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/react/2025-08-19-html2canvas_cors_guide/</guid>
+      <pubDate>Tue, 19 Aug 2025 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (zeke)</author>
+      <category>Next.js</category><category>html2canvas</category><category>CORS</category><category>React</category><category>TypeScript</category><category>이미지 프록시</category>
+    </item>
+  
+    <item>
+      <title><![CDATA[Fine-Grained Reactivity 완벽 가이드: 차세대 반응형 프로그래밍의 모든 것]]></title>
+      <description><![CDATA[Virtual DOM의 한계를 넘어선 Fine-Grained Reactivity의 핵심 개념부터 실전 구현까지. SolidJS, Vue 3, Legend State 등 주요 FGR 프레임워크와 성능 최적화 기법을 상세히 다룹니다.]]></description>
+      <link>https://leeduhan.github.io/posts/react/2025-08-19-complete-guide-to-fine-grained-reactivity/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/react/2025-08-19-complete-guide-to-fine-grained-reactivity/</guid>
+      <pubDate>Tue, 19 Aug 2025 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (김개발)</author>
+      <category>Fine Grained Reactivity</category><category>FGR</category><category>React</category><category>SolidJS</category><category>Vue3</category><category>Legend State</category><category>Signal</category><category>Effect</category><category>Memo</category><category>상태관리</category><category>성능최적화</category><category>반응형 시스템</category>
+    </item>
+  
     <item>
       <title><![CDATA[HTML 데이터 속성(Data Attributes) 완전 가이드]]></title>
       <description><![CDATA[HTML data 속성 활용법부터 CSS attr() 함수, JavaScript dataset까지. 실무 예제로 배우는 데이터 속성 완전 가이드]]></description>
