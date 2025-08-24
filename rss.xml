@@ -7,9 +7,19 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Thu, 21 Aug 2025 14:05:32 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 24 Aug 2025 15:38:42 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
+    <item>
+      <title><![CDATA[Infrastructure as Code 도구의 2024-2025 트렌드 변화와 인기도 분석]]></title>
+      <description><![CDATA[OpenTofu의 등장으로 촉발된 IaC 시장의 대변혁과 Pulumi, Crossplane 등 주요 도구들의 성장 동향을 깊이 있게 분석합니다.]]></description>
+      <link>https://leeduhan.github.io/posts/IaC/iac-tools-trends-2024-2025/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/IaC/iac-tools-trends-2024-2025/</guid>
+      <pubDate>Sun, 24 Aug 2025 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (지크)</author>
+      <category>Infrastructure as Code</category><category>IaC</category><category>OpenTofu</category><category>Terraform</category><category>Pulumi</category><category>Crossplane</category><category>DevOps</category><category>클라우드</category><category>마이그레이션</category>
+    </item>
+  
     <item>
       <title><![CDATA[Next.js 15와 React 19: MDX 및 RSC 아키텍처 완벽 분석]]></title>
       <description><![CDATA[Next.js 15와 React 19의 혁신적인 MDX 처리와 RSC 메커니즘을 심층 분석하고, 6단계 변환 과정과 정적 빌드에서의 서버 컴포넌트 동작 원리를 완벽 해부합니다.]]></description>
