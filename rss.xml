@@ -7,9 +7,19 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Sun, 24 Aug 2025 15:38:42 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 27 Aug 2025 08:05:49 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
+    <item>
+      <title><![CDATA[Next.js 15 Navigation별 캐싱 동작 완전 정리]]></title>
+      <description><![CDATA[Next.js 15의 캐싱 패러다임 변화와 Soft/Hard Navigation별 캐싱 동작을 완전 분석. Router Cache, Data Cache, Full Route Cache의 상호작용과 실전 마이그레이션 전략까지.]]></description>
+      <link>https://leeduhan.github.io/posts/react/2025-08-27-nextjs-15-navigation-caching-complete-guide/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/react/2025-08-27-nextjs-15-navigation-caching-complete-guide/</guid>
+      <pubDate>Wed, 27 Aug 2025 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (지크)</author>
+      <category>Next.js</category><category>Next.js 15</category><category>React 19</category><category>캐싱</category><category>Navigation</category><category>App Router</category><category>Performance</category>
+    </item>
+  
     <item>
       <title><![CDATA[Infrastructure as Code 도구의 2024-2025 트렌드 변화와 인기도 분석]]></title>
       <description><![CDATA[OpenTofu의 등장으로 촉발된 IaC 시장의 대변혁과 Pulumi, Crossplane 등 주요 도구들의 성장 동향을 깊이 있게 분석합니다.]]></description>
