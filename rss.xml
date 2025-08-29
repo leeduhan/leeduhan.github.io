@@ -7,9 +7,19 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Thu, 28 Aug 2025 02:07:15 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 29 Aug 2025 04:32:19 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
+    <item>
+      <title><![CDATA[HTML 반응형 이미지 가이드]]></title>
+      <description><![CDATA[HTML의 srcset, sizes, picture 엘리먼트를 활용한 반응형 이미지 최적화 기법. 실무 예제와 성능 데이터로 최대 72% 용량 절약하기]]></description>
+      <link>https://leeduhan.github.io/posts/css/2025-08-29-responsive-images-guide/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/css/2025-08-29-responsive-images-guide/</guid>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (지크)</author>
+      <category>HTML</category><category>반응형 웹</category><category>성능 최적화</category><category>이미지 최적화</category><category>웹 접근성</category><category>srcset</category><category>sizes</category><category>picture</category><category>lazy loading</category><category>모바일 최적화</category><category>브라우저 호환성</category><category>CSS</category><category>JavaScript</category>
+    </item>
+  
     <item>
       <title><![CDATA[Next.js 15 Navigation별 캐싱 동작 완전 정리]]></title>
       <description><![CDATA[Next.js 15의 캐싱 패러다임 변화와 Soft/Hard Navigation별 캐싱 동작을 완전 분석. Router Cache, Data Cache, Full Route Cache의 상호작용과 실전 마이그레이션 전략까지.]]></description>
