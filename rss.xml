@@ -7,11 +7,11 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Sun, 31 Aug 2025 15:48:05 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 02 Sep 2025 08:58:15 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
     <item>
-      <title><![CDATA[Next.js 15 반응형 이미지 최적화: 실무 에러 해결 가이드]]></title>
+      <title><![CDATA[Next.js 15 반응형 이미지 에러 해결 가이드]]></title>
       <description><![CDATA[Next.js 15와 React 19 환경에서 이미지 최적화 에러를 완벽하게 해결하는 실무 전략과 재사용 가능한 컴포넌트 구현 방법]]></description>
       <link>https://leeduhan.github.io/posts/react/2025-08-31-nextjs-responsive-images-solutions/</link>
       <guid isPermaLink="true">https://leeduhan.github.io/posts/react/2025-08-31-nextjs-responsive-images-solutions/</guid>
