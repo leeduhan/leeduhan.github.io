@@ -7,9 +7,19 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Sun, 07 Sep 2025 14:22:22 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 07 Sep 2025 15:46:37 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
+    <item>
+      <title><![CDATA[프론트엔드 아키텍처 가성비 분석]]></title>
+      <description><![CDATA[대표적인 정보성 웹사이트들의 프론트엔드 기술 스택과 클라우드 아키텍처별 비용 효율성을 비교 분석하고 트래픽 규모별 최적 솔루션을 제시합니다.]]></description>
+      <link>https://leeduhan.github.io/posts/technology/2025-09-06-frontend-architecture-cost-effectiveness-analysis/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/technology/2025-09-06-frontend-architecture-cost-effectiveness-analysis/</guid>
+      <pubDate>Sat, 06 Sep 2025 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (zeke)</author>
+      <category>Next.js</category><category>React</category><category>가성비분석</category><category>JAMstack</category><category>Cloudflare Pages</category><category>프론트엔드아키텍처</category><category>클라우드비용최적화</category><category>ISR</category><category>Vercel</category><category>AWS</category><category>성능최적화</category><category>웹개발비용</category><category>하이브리드아키텍처</category><category>정적사이트생성</category><category>CDN최적화</category>
+    </item>
+  
     <item>
       <title><![CDATA[Next.js 15 반응형 이미지 에러 해결 가이드]]></title>
       <description><![CDATA[Next.js 15와 React 19 환경에서 이미지 최적화 에러를 완벽하게 해결하는 실무 전략과 재사용 가능한 컴포넌트 구현 방법]]></description>
