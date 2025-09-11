@@ -7,9 +7,19 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Sun, 07 Sep 2025 17:40:29 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 11 Sep 2025 08:46:59 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
+    <item>
+      <title><![CDATA[JavaScript 모듈의 영구적인 브라우저 메모리 지속성]]></title>
+      <description><![CDATA[ES6 모듈의 메모리 지속성 메커니즘과 가비지 컬렉션 동작, 실무 관리 전략을 포괄적으로 분석합니다.]]></description>
+      <link>https://leeduhan.github.io/posts/technology/2025-09-11-javascript-module-persistent-browser-memory/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/technology/2025-09-11-javascript-module-persistent-browser-memory/</guid>
+      <pubDate>Thu, 11 Sep 2025 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (지크)</author>
+      <category>JavaScript</category><category>메모리 관리</category><category>동적 import</category><category>성능 최적화</category><category>메모리 누수</category><category>ES6 모듈</category><category>가비지 컬렉션</category><category>브라우저 메모리</category><category>모듈 캐싱</category><category>V8 엔진</category><category>SPA</category><category>웹 성능</category><category>번들링</category><category>CommonJS</category><category>웹 워커</category><category>서비스 워커</category><category>싱글톤 패턴</category><category>라이브 바인딩</category><category>모듈 시스템</category><category>브라우저 엔진</category><category>최적화</category><category>캐싱</category><category>웹개발</category>
+    </item>
+  
     <item>
       <title><![CDATA[프론트엔드 아키텍처 가성비 분석]]></title>
       <description><![CDATA[대표적인 정보성 웹사이트들의 프론트엔드 기술 스택과 클라우드 아키텍처별 비용 효율성을 비교 분석하고 트래픽 규모별 최적 솔루션을 제시합니다.]]></description>
