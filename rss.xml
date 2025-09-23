@@ -7,9 +7,19 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Thu, 11 Sep 2025 10:26:49 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 23 Sep 2025 17:42:07 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
+    <item>
+      <title><![CDATA[AI로 코딩하면서 코딩 스타일이 변하게 된 이유]]></title>
+      <description><![CDATA[AI 도구 사용으로 인한 개발자의 코딩 스타일 변화와 Compound Pattern 선호도 증가에 대한 개인적 경험]]></description>
+      <link>https://leeduhan.github.io/posts/technology/2025-09-20-AI로인한 코딩스타일변화/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/technology/2025-09-20-AI로인한 코딩스타일변화/</guid>
+      <pubDate>Sat, 20 Sep 2025 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (지크)</author>
+      <category>Claude AI</category><category>AI 코딩</category><category>개발 생산성</category><category>Compound Pattern</category><category>headless UI</category><category>radix-ui</category><category>React 컴포넌트 패턴</category><category>개발자 경험</category><category>코드 가독성</category><category>AI 개발도구</category><category>팀 개발</category><category>코드 리뷰</category>
+    </item>
+  
     <item>
       <title><![CDATA[JavaScript 모듈의 영구적인 브라우저 메모리 지속성]]></title>
       <description><![CDATA[ES6 모듈의 메모리 지속성 메커니즘과 가비지 컬렉션 동작, 실무 관리 전략을 포괄적으로 분석합니다.]]></description>
