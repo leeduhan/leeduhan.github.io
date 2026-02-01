@@ -7,14 +7,54 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Thu, 27 Nov 2025 00:52:16 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 01 Feb 2026 14:05:39 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
     <item>
+      <title><![CDATA[Open Graph 메타 태그 완벽 가이드: 소셜 미디어 공유 최적화]]></title>
+      <description><![CDATA[Facebook, LinkedIn, KakaoTalk 등 소셜 미디어에서 링크 공유 시 표시되는 Open Graph 메타 태그 사용법을 상세히 알아봅니다.]]></description>
+      <link>https://leeduhan.github.io/posts/html/2026-02-01-open-graph-meta-tag-guide/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/html/2026-02-01-open-graph-meta-tag-guide/</guid>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (hanlee)</author>
+      <category>HTML</category><category>Open Graph</category><category>meta 태그</category><category>SEO</category><category>소셜 미디어 최적화</category><category>웹 개발</category>
+    </item>
+  
+    <item>
+      <title><![CDATA[HTML SEO 완벽 가이드: 시멘틱 태그와 검색엔진 최적화]]></title>
+      <description><![CDATA[시멘틱 HTML 태그를 활용한 SEO 최적화 방법을 알아봅니다. header, main, article, section 태그의 올바른 사용법과 검색엔진이 페이지 구조를 이해하는 방식을 상세히 설명합니다.]]></description>
+      <link>https://leeduhan.github.io/posts/html/2026-02-01-html-seo-semantic-guide/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/html/2026-02-01-html-seo-semantic-guide/</guid>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (hanlee)</author>
+      <category>HTML</category><category>SEO</category><category>시멘틱 HTML</category><category>meta 태그</category><category>웹 개발</category><category>웹 접근성</category>
+    </item>
+  
+    <item>
+      <title><![CDATA[HTML meta 태그 완벽 가이드: SEO부터 소셜 미디어 최적화까지]]></title>
+      <description><![CDATA[HTML meta 태그의 모든 것을 알아봅니다. charset, viewport, description부터 Open Graph, Twitter Card, AI 봇 제어까지 실무에서 필요한 메타 태그를 상세히 설명합니다.]]></description>
+      <link>https://leeduhan.github.io/posts/html/2026-02-01-html-meta-tag-complete-guide/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/html/2026-02-01-html-meta-tag-complete-guide/</guid>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (hanlee)</author>
+      <category>HTML</category><category>meta 태그</category><category>SEO</category><category>Open Graph</category><category>Twitter Card</category><category>웹 개발</category><category>소셜 미디어 최적화</category>
+    </item>
+  
+    <item>
+      <title><![CDATA[HTML meta refresh 리다이렉트 완벽 가이드: JavaScript 없이 페이지 이동]]></title>
+      <description><![CDATA[HTML meta http-equiv refresh 태그를 사용한 페이지 리다이렉트 방법을 알아봅니다. 서버 설정 없이 정적 HTML만으로 페이지 자동 이동을 구현하는 방법과 주의사항을 상세히 설명합니다.]]></description>
+      <link>https://leeduhan.github.io/posts/html/2026-02-01-html-meta-refresh-redirect-guide/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/html/2026-02-01-html-meta-refresh-redirect-guide/</guid>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (hanlee)</author>
+      <category>HTML</category><category>meta 태그</category><category>리다이렉트</category><category>http-equiv</category><category>웹 개발</category>
+    </item>
+  
+    <item>
       <title><![CDATA[AI로 코딩하면서 코딩 스타일이 변하게 된 이유]]></title>
       <description><![CDATA[AI 도구 사용으로 인한 개발자의 코딩 스타일 변화와 Compound Pattern 선호도 증가에 대한 개인적 경험]]></description>
-      <link>https://leeduhan.github.io/posts/technology/2025-09-20-AI로인한 코딩스타일변화/</link>
-      <guid isPermaLink="true">https://leeduhan.github.io/posts/technology/2025-09-20-AI로인한 코딩스타일변화/</guid>
+      <link>https://leeduhan.github.io/posts/technology/2025-09-20-ai-coding-style-change/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/technology/2025-09-20-ai-coding-style-change/</guid>
       <pubDate>Sat, 20 Sep 2025 00:00:00 GMT</pubDate>
       <author>greenandsnow@gmail.com (지크)</author>
       <category>Claude AI</category><category>AI 코딩</category><category>개발 생산성</category><category>Compound Pattern</category><category>headless UI</category><category>radix-ui</category><category>React 컴포넌트 패턴</category><category>개발자 경험</category><category>코드 가독성</category><category>AI 개발도구</category><category>팀 개발</category><category>코드 리뷰</category>
