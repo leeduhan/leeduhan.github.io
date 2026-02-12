@@ -7,9 +7,29 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Mon, 02 Feb 2026 05:12:59 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 12 Feb 2026 01:16:40 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
+    <item>
+      <title><![CDATA[HTML link 태그 완벽 가이드: CSS 연결부터 파비콘, SEO까지]]></title>
+      <description><![CDATA[HTML link 태그의 모든 것을 알아봅니다. stylesheet로 CSS 연결, 파비콘 설정, canonical SEO, 다크모드 대응, PWA manifest까지 실무에서 필요한 link 태그 사용법을 상세히 설명합니다.]]></description>
+      <link>https://leeduhan.github.io/posts/html/2026-02-12-html-link-tag-complete-guide/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/html/2026-02-12-html-link-tag-complete-guide/</guid>
+      <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (hanlee)</author>
+      <category>HTML</category><category>link 태그</category><category>CSS</category><category>파비콘</category><category>SEO</category><category>웹 개발</category><category>반응형 웹</category>
+    </item>
+  
+    <item>
+      <title><![CDATA[HTML link 태그 성능 최적화 가이드: preload, prefetch, preconnect 완벽 정리]]></title>
+      <description><![CDATA[웹 성능을 극대화하는 리소스 힌트를 알아봅니다. preload로 필수 리소스 우선 로딩, preconnect로 외부 서버 사전 연결, prefetch로 다음 페이지 미리 준비하는 방법을 다이어그램과 함께 상세히 설명합니다.]]></description>
+      <link>https://leeduhan.github.io/posts/html/2026-02-12-html-link-resource-hints-guide/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/html/2026-02-12-html-link-resource-hints-guide/</guid>
+      <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (hanlee)</author>
+      <category>HTML</category><category>link 태그</category><category>preload</category><category>preconnect</category><category>웹 성능 최적화</category><category>리소스 힌트</category><category>웹 개발</category>
+    </item>
+  
     <item>
       <title><![CDATA[Open Graph 메타 태그 완벽 가이드: 소셜 미디어 공유 최적화]]></title>
       <description><![CDATA[Facebook, LinkedIn, KakaoTalk 등 소셜 미디어에서 링크 공유 시 표시되는 Open Graph 메타 태그 사용법을 상세히 알아봅니다.]]></description>
