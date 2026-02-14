@@ -7,7 +7,7 @@
         <language>ko-KR</language>
         <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
         <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Thu, 12 Feb 2026 01:16:40 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 14 Feb 2026 16:29:25 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
     <item>
@@ -68,16 +68,6 @@
       <pubDate>Sun, 01 Feb 2026 00:00:00 GMT</pubDate>
       <author>greenandsnow@gmail.com (hanlee)</author>
       <category>HTML</category><category>meta 태그</category><category>리다이렉트</category><category>http-equiv</category><category>웹 개발</category>
-    </item>
-  
-    <item>
-      <title><![CDATA[국민성장펀드 완벽 가이드 - 40% 소득공제의 진실과 최적 투자 전략]]></title>
-      <description><![CDATA[2026년 국민성장펀드 세제혜택 총정리. 40% 소득공제의 실제 절세액, 종합한도 2500만원 함정, 연봉별 최적 투자금액까지 완벽 분석]]></description>
-      <link>https://leeduhan.github.io/posts/stock/2026-01-31-national-growth-fund-guide/</link>
-      <guid isPermaLink="true">https://leeduhan.github.io/posts/stock/2026-01-31-national-growth-fund-guide/</guid>
-      <pubDate>Sat, 31 Jan 2026 00:00:00 GMT</pubDate>
-      <author>greenandsnow@gmail.com (lee du han)</author>
-      <category>국민성장펀드</category><category>소득공제</category><category>절세</category><category>세제혜택</category><category>연말정산</category><category>직장인재테크</category><category>2026투자</category>
     </item>
   
     <item>
@@ -281,16 +271,6 @@
     </item>
   
     <item>
-      <title><![CDATA[새 정부 출범, 부동산과 주식시장은 어디로 갈까?]]></title>
-      <description><![CDATA[정권 교체 이후 부동산과 주식시장의 변화 방향을 분석합니다. 공급 확대와 상법 개정을 통한 배당 정책이 핵심이 될 전망입니다.]]></description>
-      <link>https://leeduhan.github.io/posts/stock/2025-06-15/</link>
-      <guid isPermaLink="true">https://leeduhan.github.io/posts/stock/2025-06-15/</guid>
-      <pubDate>Sun, 15 Jun 2025 00:00:00 GMT</pubDate>
-      <author>greenandsnow@gmail.com ()</author>
-      <category>주식</category><category>부동산</category><category>정책</category><category>투자</category><category>배당</category>
-    </item>
-  
-    <item>
       <title><![CDATA[Claude Code로 개발 워크플로우 - Slash Command 설치 및 사용법]]></title>
       <description><![CDATA[Claude Code의 Slash Command 기능 소개와 ai-commit 명령어 설치 가이드. 워크플로우 자동화를 위한 실용적인 팁과 문제점 해결 방법을 다룹니다.]]></description>
       <link>https://leeduhan.github.io/posts/claude/2025-06-15-development-workflow-with-cloud-code-4/</link>
@@ -328,16 +308,6 @@
       <pubDate>Tue, 10 Jun 2025 00:00:00 GMT</pubDate>
       <author>greenandsnow@gmail.com (이두한)</author>
       <category>CLAUDE.md</category><category>AGENTS.md</category><category>프로젝트 가이드</category><category>코드 스타일</category><category>TypeScript</category><category>Claude Code</category><category>클로드 코드</category><category>바이브 코딩</category><category>Vibe Coding</category>
-    </item>
-  
-    <item>
-      <title><![CDATA[AI 투자의 명암: NVIDIA vs Palantir 완전 해부 분석]]></title>
-      <description><![CDATA[증권사 애널리스트와 기관투자자들의 말과 행동이 67-88% 다르다는 충격적인 발견! NVIDIA는 조심스럽게 접근하고, Palantir는 지금 사면 안 되는 이유를 데이터로 분석했습니다. 피터 틸이 1조원어치 주식을 파는 진짜 이유는?]]></description>
-      <link>https://leeduhan.github.io/posts/stock/2025-06-02/</link>
-      <guid isPermaLink="true">https://leeduhan.github.io/posts/stock/2025-06-02/</guid>
-      <pubDate>Mon, 02 Jun 2025 00:00:00 GMT</pubDate>
-      <author>greenandsnow@gmail.com (클로드)</author>
-      <category>AI투자</category><category>NVIDIA</category><category>Palantir</category><category>PLTY</category><category>주식분석</category><category>투자</category><category>주식공부</category><category>반도체</category><category>테크주</category><category>애널리스트</category><category>기관투자자</category><category>밸류에이션</category><category>나스닥</category><category>중국리스크</category><category>피터틸</category><category>BlackRock</category><category>AI칩</category><category>Blackwell</category>
     </item>
   
     <item>
