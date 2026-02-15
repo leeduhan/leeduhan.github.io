@@ -5,11 +5,21 @@
         <description><![CDATA[다양한 주제에 대해서 이야기합니다. 개발, 기술, 일상, 주식, 부동산 등]]></description>
         <link>https://leeduhan.github.io</link>
         <language>ko-KR</language>
-        <managingEditor>greenandsnow@gmail.com (lee du han)</managingEditor>
-        <webMaster>greenandsnow@gmail.com (lee du han)</webMaster>
-        <lastBuildDate>Sat, 14 Feb 2026 16:29:25 GMT</lastBuildDate>
+        <managingEditor>greenandsnow@gmail.com (zeke)</managingEditor>
+        <webMaster>greenandsnow@gmail.com (zeke)</webMaster>
+        <lastBuildDate>Sun, 15 Feb 2026 14:14:56 GMT</lastBuildDate>
         <atom:link href="https://leeduhan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         
+    <item>
+      <title><![CDATA[Cloudflare Pages 기본 도메인(*.pages.dev) 리다이렉트 실전 가이드]]></title>
+      <description><![CDATA[Cloudflare Pages의 기본 pages.dev 도메인을 커스텀 도메인으로 301 리다이렉트하는 방법. Zero Trust 없이 무료로 Bulk Redirects를 활용하는 실전 가이드]]></description>
+      <link>https://leeduhan.github.io/posts/technology/2026-02-15-cloudflare-pages-dev-redirect/</link>
+      <guid isPermaLink="true">https://leeduhan.github.io/posts/technology/2026-02-15-cloudflare-pages-dev-redirect/</guid>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 GMT</pubDate>
+      <author>greenandsnow@gmail.com (zeke)</author>
+      <category>Cloudflare</category><category>Cloudflare Pages</category><category>도메인</category><category>리다이렉트</category><category>SEO</category><category>블로그</category>
+    </item>
+  
     <item>
       <title><![CDATA[HTML link 태그 완벽 가이드: CSS 연결부터 파비콘, SEO까지]]></title>
       <description><![CDATA[HTML link 태그의 모든 것을 알아봅니다. stylesheet로 CSS 연결, 파비콘 설정, canonical SEO, 다크모드 대응, PWA manifest까지 실무에서 필요한 link 태그 사용법을 상세히 설명합니다.]]></description>
